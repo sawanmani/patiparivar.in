@@ -13,15 +13,18 @@
     .hero{padding:var(--space-12) 0;position:relative;overflow:hidden}
     @media(min-width:768px){.hero{padding:var(--space-16) 0 var(--space-20)}}
     .hero-grid{display:grid;grid-template-columns:1fr;gap:var(--space-8);align-items:center}
-    @media(min-width:1024px){.hero-grid{grid-template-columns:1fr 1fr;gap:var(--space-12)}}
+    @media(min-width:641px){.hero-grid{grid-template-columns:1fr 1fr;gap:var(--space-10)}}
+    @media(min-width:1025px){.hero-grid{gap:var(--space-12)}}
     .hero-content{order:1}
     .hero-tagline{font-family:var(--font-devanagari),var(--font-heading);font-size:var(--text-hero);font-weight:var(--weight-extrabold);color:var(--color-primary);line-height:var(--leading-tight);margin-bottom:var(--space-4)}
     .hero-subheading{font-size:var(--text-lg);color:var(--color-text-secondary);margin-bottom:var(--space-6)}
     .hero-buttons{display:flex;flex-direction:column;gap:var(--space-3);margin-bottom:var(--space-8)}
     @media(min-width:480px){.hero-buttons{flex-direction:row;flex-wrap:wrap}}
     .hero-image-grid{order:2;display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-3);width:100%}
-    @media(min-width:768px){.hero-image-grid{gap:var(--space-4)}}
-    .hero-image-block{aspect-ratio:1/1;border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:var(--weight-bold);color:white;font-size:var(--text-2xl);overflow:hidden;position:relative}
+    @media(min-width:641px){.hero-image-grid{gap:var(--space-4)}}
+    @media(min-width:768px){.hero-image-grid{gap:var(--space-5)}}
+    .hero-image-block{aspect-ratio:1/1;border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:var(--weight-bold);color:white;font-size:var(--text-xl);overflow:hidden;position:relative}
+    @media(min-width:641px){.hero-image-block{font-size:var(--text-lg)}}
     .hero-image-block.placeholder{background:var(--color-primary)}
     .hero-image-block.placeholder-secondary{background:var(--color-secondary)}
     .hero-image-block.placeholder-accent{background:var(--color-accent)}
@@ -79,6 +82,10 @@
     .section-subtitle{font-size:var(--text-lg);color:var(--color-text-secondary)}
     .view-all-link{display:inline-flex;align-items:center;gap:var(--space-2);font-family:var(--font-heading);font-weight:var(--weight-semibold);color:var(--color-primary);margin-top:var(--space-8);padding:var(--space-3) var(--space-6);border:2px solid var(--color-primary);border-radius:var(--radius-pill);transition:all var(--transition-normal)}
     .view-all-link:hover{background:var(--color-primary);color:white}
+    .developer-credit{border-top:1px solid rgba(15,110,86,0.1);padding-top:var(--space-4);margin-top:var(--space-6);text-align:center}
+    .developer-credit p{font-size:12px;color:var(--color-text-secondary);margin:0}
+    .developer-credit a{color:var(--color-primary);text-decoration:none}
+    .developer-credit a:hover{text-decoration:underline}
   </style>
 </head>
 <body class="gradient-diagonal">
@@ -112,8 +119,10 @@
   </nav>
   <a href="tel:+918882498498" class="floating-helpline"><span class="floating-helpline-icon">📞</span><span>Call Helpline</span></a>
 
-  <main>
-    <section class="hero gradient-radial">
+  <!-- Skip link for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <main id="main-content">
+    <section class="hero gradient-radial reveal">
       <div class="container">
         <div class="hero-grid">
           <div class="hero-content">
@@ -134,7 +143,7 @@
       </div>
     </section>
 
-    <div class="helpline-bar">
+    <div class="helpline-bar reveal">
       <div class="container">
         <div class="helpline-bar-inner">
           <div class="helpline-bar-text"><span class="helpline-bar-icon">🔔</span><span>24/7 Helpline Available</span></div>
@@ -143,7 +152,7 @@
       </div>
     </div>
 
-    <section class="section">
+    <section class="section reveal">
       <div class="container">
         <div class="quick-links-grid">
           <a href="#" class="card quick-link-card">
@@ -168,7 +177,7 @@
       </div>
     </section>
 
-    <section class="section gradient-diagonal">
+    <section class="section gradient-diagonal reveal">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Our Mission</h2>
@@ -183,7 +192,7 @@
       </div>
     </section>
 
-    <section class="section gradient-radial-alt">
+    <section class="section gradient-radial-alt reveal">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Stories of Hope</h2>
@@ -198,7 +207,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section reveal">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Recent Activities</h2>
@@ -234,7 +243,7 @@
       </div>
     </section>
 
-    <section class="section gradient-diagonal">
+    <section class="section gradient-diagonal reveal">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Helpful Resources</h2>
@@ -264,7 +273,7 @@
       </div>
     </section>
 
-    <section id="get-help" class="section gradient-radial">
+    <section id="get-help" class="section gradient-radial reveal">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Get Help Now</h2>
@@ -294,6 +303,7 @@
         <div class="footer-section"><h4>Contact Info</h4><p>📍 Lucknow, Uttar Pradesh, India</p><p><a href="mailto:contact@patipariwar.org">contact@patipariwar.org</a></p><p><a href="tel:+918882498498">+91-8882498498</a></p></div>
       </div>
       <div class="footer-bottom"><p>&copy; 2024 Pati Pariwar Kalyan Samiti. All rights reserved.</p></div>
+      <div class="developer-credit"><p>Website by [developer name] — <a href="https://wa.me/918423010046" target="_blank" rel="noopener">Chat on WhatsApp</a></p></div>
     </div>
   </footer>
 

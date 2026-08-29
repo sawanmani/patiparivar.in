@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Pati Pariwar Kalyan Samiti</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Inter:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Sticky Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Pati Pariwar<br><small>Kalyan Samiti</small></span>
+            </a>
+            
+            <nav class="main-nav" id="mainNav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aims-objectives.html">Aims & Objectives</a></li>
+                    <li><a href="activities.html">Our Activities</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="national-meet.html">National Meet</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <a href="tel:8882498498" class="helpline-btn-small">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    <span>8882498498</span>
+                </a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero bg-gradient-soft">
+        <div class="container">
+            <h1 class="page-title">Contact Us</h1>
+            <p class="page-subtitle">We're Here to Help</p>
+        </div>
+    </section>
+
+    <!-- Contact Info & Form -->
+    <section class="section">
+        <div class="container">
+            <div class="contact-layout">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <p class="lead-text">
+                        If you or someone you know needs support, please reach out to us. 
+                        We offer free consultations and guidance.
+                    </p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <h3>Address</h3>
+                                <p>9/215, Sector 9, Jankipuram<br>Lucknow, Uttar Pradesh 226021</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <h3>Email</h3>
+                                <p><a href="mailto:patipariwar@gmail.com">patipariwar@gmail.com</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div>
+                                <h3>Mobile</h3>
+                                <p><a href="tel:+919793530430">+91 9793530430</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">🆘</div>
+                            <div>
+                                <h3>Helpline (24/7)</h3>
+                                <p><a href="tel:8882498498">8882498498</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="office-hours">
+                        <h3>Office Hours</h3>
+                        <p>Monday - Saturday: 10:00 AM - 6:00 PM</p>
+                        <p>Sunday: Weekly meetings 10:00 AM - 1:00 PM</p>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h2>Send Us a Message</h2>
+                    <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+                    
+                    <form id="contactForm" class="contact-form" novalidate>
+                        <div class="form-group">
+                            <label for="name">Full Name <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" required placeholder="Your full name">
+                            <span class="error-message">Please enter your name</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required placeholder="Your phone number" pattern="[0-9]{10}">
+                            <span class="error-message">Please enter a valid 10-digit phone number</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="city">City <span class="required">*</span></label>
+                            <input type="text" id="city" name="city" required placeholder="Your city">
+                            <span class="error-message">Please enter your city</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="issue">Describe Your Issue <span class="required">*</span></label>
+                            <textarea id="issue" name="issue" rows="5" required placeholder="Briefly describe your situation or query"></textarea>
+                            <span class="error-message">Please describe your issue</span>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full">Submit</button>
+                        
+                        <p class="form-note">
+                            Your information is confidential. We respect your privacy and will only use 
+                            your details to contact you regarding your query.
+                        </p>
+                    </form>
+                    
+                    <div id="formSuccess" class="form-success" style="display: none;">
+                        <div class="success-icon">✓</div>
+                        <h3>Thank You!</h3>
+                        <p>Your message has been sent successfully. We will contact you soon.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="section bg-gradient-mint">
+        <div class="container">
+            <h2 class="section-title text-center">Our Location</h2>
+            <p class="section-intro text-center max-width-narrow">
+                Visit us at our office in Jankipuram, Lucknow
+            </p>
+            <!-- TODO: Client to replace with actual Google Maps embed iframe -->
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="#0F6E56">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    <p>Google Maps Embed</p>
+                    <p class="map-address">9/215, Sector 9, Jankipuram, Lucknow, UP 226021</p>
+                    <p class="map-note">Map placeholder — Replace with actual Google Maps iframe</p>
+                </div>
+            </div>
+            <div class="directions-link text-center mt-4">
+                <a href="https://maps.google.com/?q=9/215+Sector+9+Jankipuram+Lucknow" target="_blank" rel="noopener" class="btn btn-outline">
+                    Open in Google Maps
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Notice -->
+    <section class="section bg-gradient-warm">
+        <div class="container text-center">
+            <div class="emergency-box">
+                <h2>🚨 Need Immediate Help?</h2>
+                <p>If you're facing an emergency situation such as imminent arrest, domestic violence, 
+                   or any urgent legal matter, please call our helpline immediately.</p>
+                <a href="tel:8882498498" class="btn btn-urgent btn-large">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    Call Helpline: 8882498498
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Pati Pariwar Kalyan Samiti</h4>
+                    <p>9/215, Sector 9, Jankipuram<br>Lucknow, Uttar Pradesh 226021</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="aims-objectives.html">Aims & Objectives</a></li>
+                        <li><a href="activities.html">Our Activities</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="national-meet.html">National Meet</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><a href="mailto:patipariwar@gmail.com">patipariwar@gmail.com</a></p>
+                    <p><a href="tel:+919793530430">+91 9793530430</a></p>
+                    <p><a href="tel:8882498498">Helpline: 8882498498</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Pati Pariwar Kalyan Samiti. All rights reserved.</p>
+            </div>
+            <div class="developer-credit">
+                <p>Website by [developer name] — <a href="https://wa.me/918423010046" target="_blank" rel="noopener">Chat on WhatsApp</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Helpline Button -->
+    <a href="tel:8882498498" class="floating-helpline" aria-label="Call helpline">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+    </a>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Contact form validation
+        const contactForm = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formSuccess');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            const fields = ['name', 'phone', 'city', 'issue'];
+            
+            // Clear previous errors
+            document.querySelectorAll('.form-group').forEach(group => {
+                group.classList.remove('error');
+            });
+            
+            // Validate each field
+            fields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                const value = field.value.trim();
+                const errorSpan = field.parentElement.querySelector('.error-message');
+                
+                if (!value) {
+                    isValid = false;
+                    field.parentElement.classList.add('error');
+                } else if (fieldId === 'phone') {
+                    // Validate Indian phone number (10 digits)
+                    const phoneRegex = /^[6-9]\d{9}$/;
+                    if (!phoneRegex.test(value.replace(/\D/g, ''))) {
+                        isValid = false;
+                        field.parentElement.classList.add('error');
+                    }
+                }
+            });
+            
+            if (isValid) {
+                // Show success message (in production, this would submit to server)
+                contactForm.style.display = 'none';
+                formSuccess.style.display = 'block';
+                
+                // Log form data for demo purposes
+                console.log('Form submitted:', {
+                    name: document.getElementById('name').value.trim(),
+                    phone: document.getElementById('phone').value.trim(),
+                    city: document.getElementById('city').value.trim(),
+                    issue: document.getElementById('issue').value.trim()
+                });
+            }
+        });
+        
+        // Remove error on input
+        document.querySelectorAll('.contact-form input, .contact-form textarea').forEach(field => {
+            field.addEventListener('input', function() {
+                this.parentElement.classList.remove('error');
+            });
+        });
+    </script>
+</body>
+</html>
