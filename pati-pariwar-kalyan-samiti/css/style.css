@@ -1815,11 +1815,15 @@ select:focus-visible,
 
 .site-header .header-helpline {
   display: none;
+  font-size: 0.9em; /* Make the button slightly smaller */
+  margin-left: 10px; /* Move slightly to the right */
 }
 
 @media (min-width: 1024px) {
   .site-header .header-helpline {
     display: inline-flex;
+    font-size: 0.9em; /* Make the button slightly smaller */
+    margin-left: 10px; /* Move slightly to the right */
   }
 }
 
@@ -1905,18 +1909,25 @@ select:focus-visible,
   grid-template-columns: 1fr;
   gap: var(--space-8);
   margin-bottom: var(--space-8);
+  min-width: 0; /* Ensure grid items can shrink below their content size */
 }
 
 @media (min-width: 768px) {
   .site-footer .footer-content {
     grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-10); /* Increase gap on medium screens */
   }
 }
 
 @media (min-width: 1024px) {
   .site-footer .footer-content {
     grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-12); /* Increase gap on large screens */
   }
+}
+
+.site-footer .footer-section {
+  min-width: 0; /* Allow the section to shrink if needed */
 }
 
 .site-footer .footer-section h3 {
@@ -1937,6 +1948,7 @@ select:focus-visible,
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: var(--space-2);
   font-style: normal;
+  word-break: break-word; /* Ensure long words don't overflow */
 }
 
 .site-footer .footer-section a:hover {
@@ -1952,6 +1964,7 @@ select:focus-visible,
 .site-footer .contact-list li,
 .site-footer .footer-nav li {
   margin-bottom: var(--space-2);
+  word-break: break-word; /* Ensure long links don't overflow */
 }
 
 .site-footer .footer-bottom {
@@ -1971,6 +1984,7 @@ select:focus-visible,
 .site-footer .developer-credit a {
   color: rgba(255, 255, 255, 0.7);
   text-decoration: underline;
+  word-break: break-word; /* Ensure developer contact doesn't overflow */
 }
 
 .site-footer .developer-credit a:hover {
