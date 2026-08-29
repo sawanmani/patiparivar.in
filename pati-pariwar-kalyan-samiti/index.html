@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pati Pariwar Kalyan Samiti - Men's Rights and Family Welfare Support Organization in Lucknow, India. Helpline: 8882498498">
+  <title>Pati Pariwar Kalyan Samiti | Save Indian Family — Lucknow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .hero{padding:var(--space-12) 0;position:relative;overflow:hidden}
+    @media(min-width:768px){.hero{padding:var(--space-16) 0 var(--space-20)}}
+    .hero-grid{display:grid;grid-template-columns:1fr;gap:var(--space-8);align-items:center}
+    @media(min-width:1024px){.hero-grid{grid-template-columns:1fr 1fr;gap:var(--space-12)}}
+    .hero-content{order:1}
+    .hero-tagline{font-family:var(--font-devanagari),var(--font-heading);font-size:var(--text-hero);font-weight:var(--weight-extrabold);color:var(--color-primary);line-height:var(--leading-tight);margin-bottom:var(--space-4)}
+    .hero-subheading{font-size:var(--text-lg);color:var(--color-text-secondary);margin-bottom:var(--space-6)}
+    .hero-buttons{display:flex;flex-direction:column;gap:var(--space-3);margin-bottom:var(--space-8)}
+    @media(min-width:480px){.hero-buttons{flex-direction:row;flex-wrap:wrap}}
+    .hero-image-grid{order:2;display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-3);width:100%}
+    @media(min-width:768px){.hero-image-grid{gap:var(--space-4)}}
+    .hero-image-block{aspect-ratio:1/1;border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:var(--weight-bold);color:white;font-size:var(--text-2xl);overflow:hidden;position:relative}
+    .hero-image-block.placeholder{background:var(--color-primary)}
+    .hero-image-block.placeholder-secondary{background:var(--color-secondary)}
+    .hero-image-block.placeholder-accent{background:var(--color-accent)}
+    .hero-image-block.placeholder-light{background:var(--color-primary-light)}
+    .hero-image-block:nth-child(1){grid-row:span 2;aspect-ratio:auto}
+    .helpline-bar{background:var(--color-urgent-bg);border-top:1px solid rgba(226,75,74,0.2);border-bottom:1px solid rgba(226,75,74,0.2);padding:var(--space-4) 0}
+    .helpline-bar-inner{display:flex;flex-direction:column;align-items:center;gap:var(--space-3);text-align:center}
+    @media(min-width:768px){.helpline-bar-inner{flex-direction:row;justify-content:space-between;text-align:left}}
+    .helpline-bar-text{display:flex;align-items:center;gap:var(--space-3);font-family:var(--font-heading);font-weight:var(--weight-semibold);color:var(--color-urgent);font-size:var(--text-lg)}
+    .helpline-bar-icon{font-size:var(--text-2xl);animation:ring 1s ease infinite}
+    @keyframes ring{0%,100%{transform:rotate(0deg)}25%{transform:rotate(15deg)}75%{transform:rotate(-15deg)}}
+    .quick-links-grid{display:grid;grid-template-columns:1fr;gap:var(--space-6)}
+    @media(min-width:768px){.quick-links-grid{grid-template-columns:repeat(3,1fr)}}
+    .quick-link-card{text-align:center;padding:var(--space-8) var(--space-6)}
+    .quick-link-icon{width:80px;height:80px;margin:0 auto var(--space-4);background:var(--color-primary-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:var(--text-3xl)}
+    .stats-grid{display:grid;grid-template-columns:1fr;gap:var(--space-6);margin-top:var(--space-8)}
+    @media(min-width:768px){.stats-grid{grid-template-columns:repeat(3,1fr)}}
+    .stat-card{text-align:center;padding:var(--space-6);background:white;border-radius:var(--radius-xl);border:1px solid rgba(15,110,86,0.1)}
+    .stat-number{font-family:var(--font-heading);font-size:var(--text-4xl);font-weight:var(--weight-extrabold);color:var(--color-primary);line-height:1;margin-bottom:var(--space-2)}
+    .stat-label{color:var(--color-text-secondary);font-size:var(--text-base)}
+    .testimonials-grid{display:grid;grid-template-columns:1fr;gap:var(--space-6)}
+    @media(min-width:768px){.testimonials-grid{grid-template-columns:repeat(3,1fr)}}
+    .testimonial-quote{font-size:var(--text-lg);font-style:italic;color:var(--color-text-secondary);line-height:var(--leading-relaxed)}
+    .testimonial-author{margin-top:var(--space-4);font-family:var(--font-heading);font-weight:var(--weight-semibold);color:var(--color-primary)}
+    .activities-grid{display:grid;grid-template-columns:1fr;gap:var(--space-6)}
+    @media(min-width:768px){.activities-grid{grid-template-columns:repeat(3,1fr)}}
+    .activity-card{padding:0;overflow:hidden}
+    .activity-image{width:100%;aspect-ratio:16/10;background:var(--color-primary-light);display:flex;align-items:center;justify-content:center;font-size:var(--text-4xl);color:white}
+    .activity-content{padding:var(--space-5)}
+    .activity-title{font-size:var(--text-lg);margin-bottom:var(--space-2)}
+    .activity-meta{font-size:var(--text-sm);color:var(--color-text-secondary);margin-bottom:var(--space-3)}
+    .resources-grid{display:grid;grid-template-columns:1fr;gap:var(--space-6)}
+    @media(min-width:768px){.resources-grid{grid-template-columns:repeat(3,1fr)}}
+    .resource-card{display:flex;flex-direction:column}
+    .resource-icon{width:50px;height:50px;background:var(--color-accent);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:var(--text-xl);margin-bottom:var(--space-4)}
+    .resource-title{font-size:var(--text-lg);margin-bottom:var(--space-2)}
+    .resource-desc{color:var(--color-text-secondary);font-size:var(--text-sm);margin-bottom:var(--space-4);flex-grow:1}
+    .contact-form-section{background:white;border-radius:var(--radius-xl);padding:var(--space-8);box-shadow:var(--shadow-lg)}
+    @media(min-width:768px){.contact-form-section{padding:var(--space-10)}}
+    .form-grid{display:grid;grid-template-columns:1fr;gap:var(--space-4)}
+    @media(min-width:768px){.form-grid{grid-template-columns:repeat(2,1fr)}}
+    .form-group{display:flex;flex-direction:column}
+    .form-group.full-width{grid-column:1/-1}
+    .form-label{font-family:var(--font-heading);font-weight:var(--weight-semibold);margin-bottom:var(--space-2);color:var(--color-text-primary)}
+    .form-input,.form-textarea{padding:var(--space-3) var(--space-4);border:2px solid rgba(15,110,86,0.2);border-radius:var(--radius-sm);font-family:var(--font-body);font-size:var(--text-base);transition:border-color var(--transition-fast);background:white}
+    .form-input:focus,.form-textarea:focus{outline:none;border-color:var(--color-primary)}
+    .form-input.error,.form-textarea.error{border-color:var(--color-urgent)}
+    .form-error{font-size:var(--text-sm);color:var(--color-urgent);margin-top:var(--space-1);display:none}
+    .form-input.error+.form-error,.form-textarea.error+.form-error{display:block}
+    .form-textarea{min-height:120px;resize:vertical}
+    .form-submit{margin-top:var(--space-4);width:100%;justify-content:center}
+    @media(min-width:768px){.form-submit{width:auto;align-self:start}}
+    .section-header{text-align:center;max-width:700px;margin:0 auto var(--space-10)}
+    .section-title{color:var(--color-primary);margin-bottom:var(--space-4)}
+    .section-subtitle{font-size:var(--text-lg);color:var(--color-text-secondary)}
+    .view-all-link{display:inline-flex;align-items:center;gap:var(--space-2);font-family:var(--font-heading);font-weight:var(--weight-semibold);color:var(--color-primary);margin-top:var(--space-8);padding:var(--space-3) var(--space-6);border:2px solid var(--color-primary);border-radius:var(--radius-pill);transition:all var(--transition-normal)}
+    .view-all-link:hover{background:var(--color-primary);color:white}
+  </style>
+</head>
+<body class="gradient-diagonal">
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="#" class="logo"><div class="logo-icon">🏛️</div><span>Pati Pariwar<br>Kalyan Samiti</span></a>
+        <nav class="nav">
+          <a href="#" class="nav-link">Home</a>
+          <a href="#" class="nav-link">About Us</a>
+          <a href="#" class="nav-link">Services</a>
+          <a href="#" class="nav-link">Resources</a>
+          <a href="#get-help" class="nav-link">Contact</a>
+        </nav>
+        <div class="header-actions">
+          <a href="tel:+918882498498" class="helpline-desktop"><span>📞</span><span>Helpline: +91-8882498498</span></a>
+          <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <nav class="mobile-nav">
+    <ul>
+      <li><a href="#" class="mobile-nav-link">Home</a></li>
+      <li><a href="#" class="mobile-nav-link">About Us</a></li>
+      <li><a href="#" class="mobile-nav-link">Services</a></li>
+      <li><a href="#" class="mobile-nav-link">Resources</a></li>
+      <li><a href="#get-help" class="mobile-nav-link">Contact</a></li>
+      <li style="margin-top:var(--space-6);"><a href="tel:+918882498498" class="btn btn-urgent" style="width:100%;justify-content:center;">📞 Call Helpline</a></li>
+    </ul>
+  </nav>
+  <a href="tel:+918882498498" class="floating-helpline"><span class="floating-helpline-icon">📞</span><span>Call Helpline</span></a>
+
+  <main>
+    <section class="hero gradient-radial">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <h1 class="hero-tagline hindi">आओ परिवार बचायें</h1>
+            <p class="hero-subheading">Save Indian Family — Lucknow</p>
+            <div class="hero-buttons">
+              <a href="tel:+918882498498" class="btn btn-urgent btn-lg">📞 Call helpline now</a>
+              <a href="#get-help" class="btn btn-outline btn-lg">Get help online</a>
+            </div>
+          </div>
+          <div class="hero-image-grid">
+            <div class="hero-image-block placeholder"><span>Family Support</span></div>
+            <div class="hero-image-block placeholder-secondary"><span>Legal Aid</span></div>
+            <div class="hero-image-block placeholder-accent"><span>Counseling</span></div>
+            <div class="hero-image-block placeholder-light"><span>Community</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="helpline-bar">
+      <div class="container">
+        <div class="helpline-bar-inner">
+          <div class="helpline-bar-text"><span class="helpline-bar-icon">🔔</span><span>24/7 Helpline Available</span></div>
+          <a href="tel:+918882498498" class="btn btn-urgent btn-sm">Call +91-8882498498</a>
+        </div>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="quick-links-grid">
+          <a href="#" class="card quick-link-card">
+            <div class="quick-link-icon">⚖️</div>
+            <h3>Legal Help</h3>
+            <p>Expert legal guidance for family disputes and men's rights protection</p>
+            <span class="btn btn-primary btn-sm">Learn More →</span>
+          </a>
+          <a href="#" class="card quick-link-card">
+            <div class="quick-link-icon">💬</div>
+            <h3>Counselling</h3>
+            <p>Professional counseling for individuals and families facing challenges</p>
+            <span class="btn btn-primary btn-sm">Book Session →</span>
+          </a>
+          <a href="#" class="card quick-link-card">
+            <div class="quick-link-icon">👥</div>
+            <h3>Meetings</h3>
+            <p>Join our support group meetings and community gatherings</p>
+            <span class="btn btn-primary btn-sm">View Schedule →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gradient-diagonal">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Our Mission</h2>
+          <p class="section-subtitle">Pati Pariwar Kalyan Samiti is dedicated to protecting men's rights and strengthening families in Lucknow. We provide legal support, counseling, and community resources to ensure fair treatment and family welfare for all.</p>
+        </div>
+        <!-- Stats Cards - PLACEHOLDER DATA (client to supply real numbers) -->
+        <div class="stats-grid">
+          <div class="stat-card"><!-- TODO: Replace with actual statistics from client --><div class="stat-number">500+</div><div class="stat-label">Families helped</div></div>
+          <div class="stat-card"><!-- TODO: Replace with actual statistics from client --><div class="stat-number">12</div><div class="stat-label">Years active</div></div>
+          <div class="stat-card"><!-- TODO: Replace with actual statistics from client --><div class="stat-number">50+</div><div class="stat-label">Volunteers</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gradient-radial-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Stories of Hope</h2>
+          <p class="section-subtitle">Real experiences from families we've supported</p>
+        </div>
+        <div class="testimonials-grid">
+          <!-- Testimonial cards - PLACEHOLDER CONTENT (client to supply real testimonials) -->
+          <div class="card testimonial-card"><p class="testimonial-quote">"The support I received from Pati Pariwar Kalyan Samiti helped me navigate through the most difficult time in my life. Their legal guidance was invaluable."</p><p class="testimonial-author">— Anonymous, Lucknow</p></div>
+          <div class="card testimonial-card"><p class="testimonial-quote">"Their counseling services brought our family back together. The volunteers truly care about making a difference in people's lives."</p><p class="testimonial-author">— R.K., Uttar Pradesh</p></div>
+          <div class="card testimonial-card"><p class="testimonial-quote">"I felt alone until I found this organization. They provided both emotional support and practical legal advice when I needed it most."</p><p class="testimonial-author">— S.M., Kanpur</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Recent Activities</h2>
+          <p class="section-subtitle">Stay updated with our latest events and initiatives</p>
+        </div>
+        <div class="activities-grid">
+          <div class="card activity-card">
+            <div class="activity-image">📸</div>
+            <div class="activity-content">
+              <h3 class="activity-title">National Meet 2024</h3>
+              <p class="activity-meta">New Delhi • March 2024</p>
+              <p class="text-secondary">Annual gathering of family welfare organizations across India discussing men's rights and legal reforms.</p>
+            </div>
+          </div>
+          <div class="card activity-card">
+            <div class="activity-image">🎤</div>
+            <div class="activity-content">
+              <h3 class="activity-title">Legal Awareness Workshop</h3>
+              <p class="activity-meta">Lucknow • February 2024</p>
+              <p class="text-secondary">Educational session on legal rights and procedures for men facing family disputes.</p>
+            </div>
+          </div>
+          <div class="card activity-card">
+            <div class="activity-image">🤝</div>
+            <div class="activity-content">
+              <h3 class="activity-title">Community Support Meeting</h3>
+              <p class="activity-meta">Lucknow • January 2024</p>
+              <p class="text-secondary">Monthly support group meeting bringing together families and volunteers.</p>
+            </div>
+          </div>
+        </div>
+        <div class="text-center"><a href="#" class="view-all-link">View all activities →</a></div>
+      </div>
+    </section>
+
+    <section class="section gradient-diagonal">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Helpful Resources</h2>
+          <p class="section-subtitle">Download guides and legal information</p>
+        </div>
+        <div class="resources-grid">
+          <a href="#" class="card resource-card">
+            <div class="resource-icon">📄</div>
+            <h3 class="resource-title">Legal Rights Guide</h3>
+            <p class="resource-desc">Comprehensive guide to men's legal rights in family disputes under Indian law.</p>
+            <span class="btn btn-outline btn-sm">Download PDF ↓</span>
+          </a>
+          <a href="#" class="card resource-card">
+            <div class="resource-icon">📋</div>
+            <h3 class="resource-title">Counseling Handbook</h3>
+            <p class="resource-desc">Self-help strategies and coping mechanisms for stress management during conflicts.</p>
+            <span class="btn btn-outline btn-sm">Download PDF ↓</span>
+          </a>
+          <a href="#" class="card resource-card">
+            <div class="resource-icon">⚖️</div>
+            <h3 class="resource-title">Court Procedure Guide</h3>
+            <p class="resource-desc">Step-by-step overview of family court procedures and what to expect.</p>
+            <span class="btn btn-outline btn-sm">Download PDF ↓</span>
+          </a>
+        </div>
+        <div class="text-center"><a href="#" class="view-all-link">View all resources →</a></div>
+      </div>
+    </section>
+
+    <section id="get-help" class="section gradient-radial">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Get Help Now</h2>
+          <p class="section-subtitle">Fill out the form below and we'll get in touch with you</p>
+        </div>
+        <div class="contact-form-section">
+          <form id="helpForm" novalidate>
+            <div class="form-grid">
+              <div class="form-group"><label for="name" class="form-label">Full Name *</label><input type="text" id="name" name="name" class="form-input" required placeholder="Your full name"><span class="form-error">Please enter your name</span></div>
+              <div class="form-group"><label for="phone" class="form-label">Phone Number *</label><input type="tel" id="phone" name="phone" class="form-input" required placeholder="+91 XXXXX XXXXX" pattern="[0-9+\-\s()]{10,15}"><span class="form-error">Please enter a valid phone number (10+ digits)</span></div>
+              <div class="form-group"><label for="city" class="form-label">City *</label><input type="text" id="city" name="city" class="form-input" required placeholder="Your city"><span class="form-error">Please enter your city</span></div>
+              <div class="form-group full-width"><label for="issue" class="form-label">Issue Description *</label><textarea id="issue" name="issue" class="form-textarea" required placeholder="Briefly describe your situation..."></textarea><span class="form-error">Please describe your issue</span></div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg form-submit">Submit Request</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section"><h4>Pati Pariwar Kalyan Samiti</h4><p>Supporting families and protecting men's rights in Lucknow since 2012.</p></div>
+        <div class="footer-section"><h4>Quick Links</h4><p><a href="#">About Us</a></p><p><a href="#">Our Services</a></p><p><a href="#">Resources</a></p><p><a href="#get-help">Contact</a></p></div>
+        <div class="footer-section"><h4>Services</h4><p><a href="#">Legal Aid</a></p><p><a href="#">Counseling</a></p><p><a href="#">Support Groups</a></p><p><a href="#">Emergency Helpline</a></p></div>
+        <div class="footer-section"><h4>Contact Info</h4><p>📍 Lucknow, Uttar Pradesh, India</p><p><a href="mailto:contact@patipariwar.org">contact@patipariwar.org</a></p><p><a href="tel:+918882498498">+91-8882498498</a></p></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2024 Pati Pariwar Kalyan Samiti. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('helpForm');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          let isValid = true;
+          const inputs = form.querySelectorAll('.form-input, .form-textarea');
+          inputs.forEach(input => {
+            const value = input.value.trim();
+            input.classList.remove('error');
+            if (!value && input.hasAttribute('required')) {
+              input.classList.add('error');
+              isValid = false;
+              return;
+            }
+            if (input.id === 'phone' && value) {
+              const phoneRegex = /^[0-9+\-\s()]{10,15}$/;
+              if (!phoneRegex.test(value)) {
+                input.classList.add('error');
+                isValid = false;
+              }
+            }
+          });
+          if (isValid) {
+            alert('Thank you for contacting us. We will get in touch with you soon.');
+            form.reset();
+          } else {
+            const firstError = form.querySelector('.error');
+            if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        });
+        form.querySelectorAll('.form-input, .form-textarea').forEach(input => {
+          input.addEventListener('input', function() { this.classList.remove('error'); });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
