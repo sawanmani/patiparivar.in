@@ -134,7 +134,6 @@ body {
   color: var(--color-text-primary);
   background-color: var(--color-bg-cream);
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
 /* Hindi Text Support */
@@ -419,16 +418,32 @@ button {
   }
 }
 
-.nav {
+.main-nav {
   display: none;
 }
 
 @media (min-width: 1024px) {
-  .nav {
+  .main-nav {
     display: flex;
     align-items: center;
     gap: var(--space-8);
   }
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column; /* Initially stack vertically for mobile */
+  gap: var(--space-2);
+}
+
+@media (min-width: 1024px) {
+  .nav-list {
+    flex-direction: row; /* Switch to row for desktop */
+  }
+}
+
+.nav-list li {
+  list-style: none;
 }
 
 .nav-link {
@@ -437,6 +452,12 @@ button {
   color: var(--color-text-primary);
   padding: var(--space-2) 0;
   position: relative;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--color-secondary);
 }
 
 .nav-link::after {
@@ -532,36 +553,34 @@ button {
 }
 
 /* MOBILE NAV OVERLAY */
-.mobile-nav {
-  position: fixed;
-  top: var(--header-height-mobile);
+/* The .mobile-nav class is not used in the header.html. The .main-nav element itself is toggled. */
+/* We need to make .main-nav visible when .nav-open is added by JS. */
+.main-nav.nav-open {
+  display: flex !important; /* Override the default display: none; below 1024px */
+  flex-direction: column; /* Stack items vertically */
+  position: absolute; /* Position it relative to the header */
+  top: 100%; /* Place it directly below the header */
   left: 0;
-  width: 100%;
-  height: calc(100vh - var(--header-height-mobile));
+  right: 0;
   background: var(--color-bg-cream);
-  padding: var(--space-6);
-  transform: translateX(100%);
-  transition: transform var(--transition-normal);
-  z-index: 999;
+  padding: var(--space-4);
+  border-top: 1px solid rgba(15, 110, 86, 0.1);
+  z-index: 999; /* Ensure it's above other content */
+  max-height: calc(100vh - var(--header-height-mobile)); /* Limit height */
+  overflow-y: auto; /* Allow scrolling if content is long */
 }
 
-.mobile-nav.active {
-  transform: translateX(0);
-}
-
-.mobile-nav ul {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-}
-
-.mobile-nav-link {
-  font-family: var(--font-heading);
-  font-size: var(--text-xl);
-  font-weight: var(--weight-semibold);
-  color: var(--color-text-primary);
-  padding: var(--space-3) 0;
-  border-bottom: 1px solid rgba(15, 110, 86, 0.1);
+@media (min-width: 1024px) {
+  .main-nav.nav-open {
+    position: static; /* Reset position on desktop */
+    display: flex !important; /* Ensure it remains visible */
+    flex-direction: row; /* Desktop layout */
+    max-height: none; /* Remove height limit */
+    overflow-y: visible; /* Remove scroll */
+    background: transparent; /* Remove background */
+    padding: 0; /* Remove padding */
+    border-top: none; /* Remove border */
+  }
 }
 
 /* FLOATING HELPLINE BUTTON */
