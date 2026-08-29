@@ -89,38 +89,14 @@
   </style>
 </head>
 <body class="gradient-diagonal">
-  <header class="header">
-    <div class="container">
-      <div class="header-inner">
-        <a href="#" class="logo"><div class="logo-icon">🏛️</div><span>Pati Pariwar<br>Kalyan Samiti</span></a>
-        <nav class="nav">
-          <a href="#" class="nav-link">Home</a>
-          <a href="#" class="nav-link">About Us</a>
-          <a href="#" class="nav-link">Services</a>
-          <a href="#" class="nav-link">Resources</a>
-          <a href="#get-help" class="nav-link">Contact</a>
-        </nav>
-        <div class="header-actions">
-          <a href="tel:+918882498498" class="helpline-desktop"><span>📞</span><span>Helpline: +91-8882498498</span></a>
-          <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-        </div>
-      </div>
-    </div>
-  </header>
-  <nav class="mobile-nav">
-    <ul>
-      <li><a href="#" class="mobile-nav-link">Home</a></li>
-      <li><a href="#" class="mobile-nav-link">About Us</a></li>
-      <li><a href="#" class="mobile-nav-link">Services</a></li>
-      <li><a href="#" class="mobile-nav-link">Resources</a></li>
-      <li><a href="#get-help" class="mobile-nav-link">Contact</a></li>
-      <li style="margin-top:var(--space-6);"><a href="tel:+918882498498" class="btn btn-urgent" style="width:100%;justify-content:center;">📞 Call Helpline</a></li>
-    </ul>
-  </nav>
-  <a href="tel:+918882498498" class="floating-helpline"><span class="floating-helpline-icon">📞</span><span>Call Helpline</span></a>
-
-  <!-- Skip link for accessibility -->
+  <!-- Shared Header Component Container -->
+  <div id="header-container"></div>
+  
+  <!-- Contact Modal Component Container -->
+  <div id="modal-container"></div>
+  
   <a href="#main-content" class="skip-link">Skip to main content</a>
+  
   <main id="main-content">
     <section class="hero gradient-radial reveal">
       <div class="container">
@@ -130,7 +106,7 @@
             <p class="hero-subheading">Save Indian Family — Lucknow</p>
             <div class="hero-buttons">
               <a href="tel:+918882498498" class="btn btn-urgent btn-lg">📞 Call helpline now</a>
-              <a href="#get-help" class="btn btn-outline btn-lg">Get help online</a>
+              <button type="button" class="btn btn-primary btn-lg" data-open-modal="contact">Get help online</button>
             </div>
           </div>
           <div class="hero-image-grid">
@@ -294,18 +270,8 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-section"><h4>Pati Pariwar Kalyan Samiti</h4><p>Supporting families and protecting men's rights in Lucknow since 2012.</p></div>
-        <div class="footer-section"><h4>Quick Links</h4><p><a href="#">About Us</a></p><p><a href="#">Our Services</a></p><p><a href="#">Resources</a></p><p><a href="#get-help">Contact</a></p></div>
-        <div class="footer-section"><h4>Services</h4><p><a href="#">Legal Aid</a></p><p><a href="#">Counseling</a></p><p><a href="#">Support Groups</a></p><p><a href="#">Emergency Helpline</a></p></div>
-        <div class="footer-section"><h4>Contact Info</h4><p>📍 Lucknow, Uttar Pradesh, India</p><p><a href="mailto:contact@patipariwar.org">contact@patipariwar.org</a></p><p><a href="tel:+918882498498">+91-8882498498</a></p></div>
-      </div>
-      <div class="footer-bottom"><p>&copy; 2024 Pati Pariwar Kalyan Samiti. All rights reserved.</p></div>
-      <div class="developer-credit"><p>Website by [developer name] — <a href="https://wa.me/918423010046" target="_blank" rel="noopener">Chat on WhatsApp</a></p></div>
-    </div>
-  </footer>
+  <!-- Shared Footer Component Container -->
+  <div id="footer-container"></div>
 
   <script src="js/main.js"></script>
   <script>

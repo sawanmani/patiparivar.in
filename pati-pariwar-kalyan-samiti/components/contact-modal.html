@@ -1,0 +1,41 @@
+<!-- Contact Form Modal -->
+<div class="modal-overlay" id="contact-modal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+    
+    <h2 id="modal-title" class="modal-title">Get Help Online</h2>
+    <p class="modal-subtitle">Fill out the form below and we'll get back to you shortly.</p>
+    
+    <form class="contact-form" id="modal-contact-form" novalidate>
+      <div class="form-group">
+        <label for="modal-name">Full Name <span class="required">*</span></label>
+        <input type="text" id="modal-name" name="name" required autocomplete="name" placeholder="Enter your full name">
+        <span class="error-message" id="modal-name-error"></span>
+      </div>
+      
+      <div class="form-group">
+        <label for="modal-phone">Phone Number <span class="required">*</span></label>
+        <input type="tel" id="modal-phone" name="phone" required autocomplete="tel" placeholder="+91 XXXXX XXXXX" pattern="[+]?[0-9\s]{10,15}">
+        <span class="error-message" id="modal-phone-error"></span>
+      </div>
+      
+      <div class="form-group">
+        <label for="modal-city">City <span class="required">*</span></label>
+        <input type="text" id="modal-city" name="city" required autocomplete="address-level2" placeholder="Your city">
+        <span class="error-message" id="modal-city-error"></span>
+      </div>
+      
+      <div class="form-group">
+        <label for="modal-issue">Issue Description <span class="required">*</span></label>
+        <textarea id="modal-issue" name="issue" rows="4" required placeholder="Briefly describe your situation..."></textarea>
+        <span class="error-message" id="modal-issue-error"></span>
+      </div>
+      
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary btn-full">Submit Request</button>
+      </div>
+      
+      <p class="form-note">By submitting, you agree to be contacted by our team. All information is kept confidential.</p>
+    </form>
+  </div>
+</div>
