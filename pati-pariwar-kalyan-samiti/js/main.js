@@ -4,56 +4,261 @@
 
 document.addEventListener('DOMContentLoaded', function() {
   
-  // ==========================================
-  // Mobile Navigation Toggle with Animation
-  // ==========================================
-  const hamburger = document.querySelector('.hamburger');
-  const mobileNav = document.querySelector('.mobile-nav');
-  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+  // Store current page name for active nav highlighting
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   
-  if (hamburger && mobileNav) {
-    hamburger.addEventListener('click', function() {
-      const isActive = hamburger.classList.toggle('active');
-      mobileNav.classList.toggle('active');
+  // ==========================================
+  // Component Loader (Header, Footer, Modal)
+  // ==========================================
+  async function loadComponent(selector, url) {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`Failed to load ${url}`);
+      const html = await response.text();
+      document.querySelector(selector).innerHTML = html;
       
-      // Update aria-expanded for accessibility
-      hamburger.setAttribute('aria-expanded', isActive);
+      // After loading header, set active nav state and init hamburger
+      if (selector === '#header-container') {
+        setActiveNav();
+        initHamburger();
+      }
       
-      // Prevent body scroll when nav is open
-      document.body.style.overflow = isActive ? 'hidden' : '';
-    });
+      // After loading modal, initialize it
+      if (selector === '#modal-container') {
+        initContactModal();
+      }
+    } catch (error) {
+      console.error('Error loading component:', error);
+    }
+  }
+
+  // ==========================================
+  // Active Navigation State
+  // ==========================================
+  function setActiveNav() {
+    const navLinks = document.querySelectorAll('.nav-list a[data-page]');
+    const pageMap = {
+      'index.html': 'index',
+      'aims-objectives.html': 'aims-objectives',
+      'activities.html': 'activities',
+      'resources.html': 'resources',
+      'national-meet.html': 'national-meet',
+      'contact.html': 'contact'
+    };
     
-    // Close nav when clicking a link
-    mobileNavLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        hamburger.classList.remove('active');
-        mobileNav.classList.remove('active');
-        hamburger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
-    });
+    const currentPageKey = pageMap[currentPage] || 'index';
     
-    // Close nav when clicking outside
-    document.addEventListener('click', function(e) {
-      if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
-        hamburger.classList.remove('active');
-        mobileNav.classList.remove('active');
-        hamburger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+    navLinks.forEach(link => {
+      if (link.dataset.page === currentPageKey) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
       }
     });
+  }
+
+  // ==========================================
+  // Mobile Hamburger Menu
+  // ==========================================
+  function initHamburger() {
+    const hamburger = document.querySelector('.hamburger');
+    const mainNav = document.querySelector('.main-nav');
     
-    // Close nav on escape key
+    if (!hamburger || !mainNav) return;
+    
+    hamburger.addEventListener('click', function() {
+      const isActive = hamburger.classList.toggle('active');
+      const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !isExpanded);
+      mainNav.classList.toggle('nav-open');
+      document.body.classList.toggle('menu-open');
+      document.body.style.overflow = mainNav.classList.contains('nav-open') ? 'hidden' : '';
+    });
+    
+    // Close menu on escape key
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+      if (e.key === 'Escape' && mainNav.classList.contains('nav-open')) {
         hamburger.classList.remove('active');
-        mobileNav.classList.remove('active');
         hamburger.setAttribute('aria-expanded', 'false');
+        mainNav.classList.remove('nav-open');
+        document.body.classList.remove('menu-open');
         document.body.style.overflow = '';
         hamburger.focus();
       }
     });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (mainNav.classList.contains('nav-open') && 
+          !mainNav.contains(e.target) && 
+          !hamburger.contains(e.target)) {
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        mainNav.classList.remove('nav-open');
+        document.body.classList.remove('menu-open');
+        document.body.style.overflow = '';
+      }
+    });
   }
+  
+  // ==========================================
+  // Contact Modal Functionality
+  // ==========================================
+  function initContactModal() {
+    const modal = document.getElementById('contact-modal');
+    const modalClose = document.getElementById('modal-close');
+    const modalForm = document.getElementById('modal-contact-form');
+    const getHelpButtons = document.querySelectorAll('[data-open-modal="contact"]');
+    
+    if (!modal) return;
+    
+    // Open modal functions
+    function openModal() {
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      document.body.classList.add('modal-open');
+      
+      // Focus first input
+      const firstInput = modal.querySelector('input, textarea');
+      if (firstInput) firstInput.focus();
+    }
+    
+    function closeModal() {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      document.body.classList.remove('modal-open');
+      
+      // Reset form
+      if (modalForm) {
+        modalForm.reset();
+        modalForm.querySelectorAll('.form-group').forEach(group => {
+          group.classList.remove('error');
+          const existingError = group.querySelector('.error-message');
+          if (existingError) existingError.remove();
+        });
+      }
+    }
+    
+    // Open modal from buttons
+    getHelpButtons.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        openModal();
+      });
+    });
+    
+    // Also open from floating helpline button if it has the attribute
+    const floatingBtn = document.querySelector('.floating-helpline');
+    if (floatingBtn && floatingBtn.dataset.openModal === 'contact') {
+      floatingBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        openModal();
+      });
+    }
+    
+    // Close modal
+    if (modalClose) {
+      modalClose.addEventListener('click', closeModal);
+    }
+    
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+    
+    // Close on escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+    
+    // Form validation for modal form
+    if (modalForm) {
+      modalForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        let isValid = true;
+        const nameInput = modalForm.querySelector('#modal-name');
+        const phoneInput = modalForm.querySelector('#modal-phone');
+        const cityInput = modalForm.querySelector('#modal-city');
+        const issueInput = modalForm.querySelector('#modal-issue');
+        
+        // Clear previous errors
+        modalForm.querySelectorAll('.form-group').forEach(group => {
+          group.classList.remove('error');
+          const existingError = group.querySelector('.error-message');
+          if (existingError) existingError.remove();
+        });
+        
+        // Validate Name
+        if (!nameInput || nameInput.value.trim() === '') {
+          showError(nameInput, 'Name is required', modalForm);
+          isValid = false;
+        }
+        
+        // Validate Phone (Indian format)
+        const phoneRegex = /^(\+91|0)?[6789]\d{9}$/;
+        if (!phoneInput || !phoneRegex.test(phoneInput.value.trim())) {
+          showError(phoneInput, 'Please enter a valid 10-digit Indian mobile number', modalForm);
+          isValid = false;
+        }
+        
+        // Validate City
+        if (!cityInput || cityInput.value.trim() === '') {
+          showError(cityInput, 'City is required', modalForm);
+          isValid = false;
+        }
+        
+        // Validate Issue
+        if (!issueInput || issueInput.value.trim() === '') {
+          showError(issueInput, 'Please describe your issue', modalForm);
+          isValid = false;
+        }
+        
+        if (isValid) {
+          showSuccess(modalForm, closeModal);
+        }
+      });
+    }
+    
+    function showError(input, message, form) {
+      const formGroup = input.closest('.form-group');
+      if (formGroup) {
+        formGroup.classList.add('error');
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-message';
+        errorDiv.textContent = message;
+        errorDiv.setAttribute('role', 'alert');
+        formGroup.appendChild(errorDiv);
+        input.setAttribute('aria-invalid', 'true');
+      }
+    }
+    
+    function showSuccess(form, closeCallback) {
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Message Sent!';
+      submitBtn.disabled = true;
+      submitBtn.style.background = '#0F6E56';
+      
+      setTimeout(() => {
+        form.reset();
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        submitBtn.style.background = '';
+        closeCallback();
+      }, 3000);
+    }
+  }
+  
+  // Load shared components
+  loadComponent('#header-container', 'components/header.html');
+  loadComponent('#footer-container', 'components/footer.html');
+  loadComponent('#modal-container', 'components/contact-modal.html');
   
   // ==========================================
   // Scroll Reveal Animation
