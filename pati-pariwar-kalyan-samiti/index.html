@@ -45,10 +45,6 @@
     .stat-card{text-align:center;padding:var(--space-6);background:white;border-radius:var(--radius-xl);border:1px solid rgba(15,110,86,0.1)}
     .stat-number{font-family:var(--font-heading);font-size:var(--text-4xl);font-weight:var(--weight-extrabold);color:var(--color-primary);line-height:1;margin-bottom:var(--space-2)}
     .stat-label{color:var(--color-text-secondary);font-size:var(--text-base)}
-    .testimonials-grid{display:grid;grid-template-columns:1fr;gap:var(--space-6)}
-    @media(min-width:768px){.testimonials-grid{grid-template-columns:repeat(3,1fr)}}
-    .testimonial-quote{font-size:var(--text-lg);font-style:italic;color:var(--color-text-secondary);line-height:var(--leading-relaxed)}
-    .testimonial-author{margin-top:var(--space-4);font-family:var(--font-heading);font-weight:var(--weight-semibold);color:var(--color-primary)}
     .activities-grid{display:grid;grid-template-columns:1fr;gap:var(--space-6)}
     @media(min-width:768px){.activities-grid{grid-template-columns:repeat(3,1fr)}}
     .activity-card{padding:0;overflow:hidden}
@@ -73,7 +69,7 @@
     .form-input:focus,.form-textarea:focus{outline:none;border-color:var(--color-primary)}
     .form-input.error,.form-textarea.error{border-color:var(--color-urgent)}
     .form-error{font-size:var(--text-sm);color:var(--color-urgent);margin-top:var(--space-1);display:none}
-    .form-input.error+.form-error,.form-textarea.error+.form-error{display:block}
+    .form-input.error+.form-textarea.error{display:block}
     .form-textarea{min-height:120px;resize:vertical}
     .form-submit{margin-top:var(--space-4);width:100%;justify-content:center}
     @media(min-width:768px){.form-submit{width:auto;align-self:start}}
@@ -94,21 +90,22 @@
       margin: 0 auto;
       overflow: hidden; /* Hide overflow */
       border-radius: var(--radius-xl); /* Match card radius */
+      padding: 0 var(--space-3); /* Add horizontal padding for card spacing */
     }
 
     .testimonials-slider {
       display: flex;
-      width: 300%; /* Ensure it's wide enough for all slides (slideCount * 100%) */
+      width: 100%; /* Reset to 100% width */
       transition: transform 0.5s ease-in-out; /* Smooth transition for sliding */
     }
 
     .testimonial-card {
-      min-width: calc(800px / 3); /* Calculate width based on container and number of slides */
+      flex: 0 0 100%; /* Each card takes up exactly 100% of the slider container's width */
       padding: var(--space-6);
       background: white;
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow-md);
-      margin: 0 var(--space-3); /* Add some side margin */
+      /* Removed margin: 0 var(--space-3); */
     }
 
     .testimonial-author {
@@ -148,25 +145,25 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 10;
+      z-index: 1000; /* Increased z-index to ensure it's on top of the section background */
       transition: background var(--transition-normal);
     }
     .slider-arrow:hover {
       background: white;
     }
     .slider-prev {
-      left: -30px; /* Position slightly outside the container */
+      left: 20px; /* Moved further inward */
     }
     .slider-next {
-      right: -30px; /* Position slightly outside the container */
+      right: 20px; /* Moved further inward */
     }
 
     @media(min-width: 768px) {
       .slider-prev {
-        left: -60px;
+        left: 20px; /* Consistent positioning on desktop */
       }
       .slider-next {
-        right: -60px;
+        right: 20px; /* Consistent positioning on desktop */
       }
     }
   </style>
