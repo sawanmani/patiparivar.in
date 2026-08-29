@@ -86,6 +86,89 @@
     .developer-credit p{font-size:12px;color:var(--color-text-secondary);margin:0}
     .developer-credit a{color:var(--color-primary);text-decoration:none}
     .developer-credit a:hover{text-decoration:underline}
+
+    /* Testimonials Slider Styles */
+    .testimonials-slider-container {
+      position: relative;
+      max-width: 800px; /* Match the width of the section header */
+      margin: 0 auto;
+      overflow: hidden; /* Hide overflow */
+      border-radius: var(--radius-xl); /* Match card radius */
+    }
+
+    .testimonials-slider {
+      display: flex;
+      width: 300%; /* Ensure it's wide enough for all slides (slideCount * 100%) */
+      transition: transform 0.5s ease-in-out; /* Smooth transition for sliding */
+    }
+
+    .testimonial-card {
+      min-width: calc(800px / 3); /* Calculate width based on container and number of slides */
+      padding: var(--space-6);
+      background: white;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+      margin: 0 var(--space-3); /* Add some side margin */
+    }
+
+    .testimonial-author {
+      margin-top: var(--space-4);
+      font-family: var(--font-heading);
+      font-weight: var(--weight-semibold);
+      color: var(--color-primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .author-name {
+      flex-grow: 1; /* Allow name to take available space */
+    }
+
+    .verified-badge {
+      background: var(--color-primary-light);
+      color: var(--color-primary);
+      font-size: var(--text-xs);
+      padding: var(--space-1) var(--space-2);
+      border-radius: var(--radius-pill);
+      font-weight: var(--weight-semibold);
+    }
+
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.8);
+      border: none;
+      font-size: var(--text-2xl);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: background var(--transition-normal);
+    }
+    .slider-arrow:hover {
+      background: white;
+    }
+    .slider-prev {
+      left: -30px; /* Position slightly outside the container */
+    }
+    .slider-next {
+      right: -30px; /* Position slightly outside the container */
+    }
+
+    @media(min-width: 768px) {
+      .slider-prev {
+        left: -60px;
+      }
+      .slider-next {
+        right: -60px;
+      }
+    }
   </style>
 </head>
 <body class="gradient-diagonal">
@@ -164,9 +247,9 @@
         </div>
         <!-- Stats Cards - PLACEHOLDER DATA (client to supply real numbers) -->
         <div class="stats-grid">
-          <div class="stat-card"><!-- TODO: Replace with actual statistics from client --><div class="stat-number">500+</div><div class="stat-label">Families helped</div></div>
-          <div class="stat-card"><!-- TODO: Replace with actual statistics from client --><div class="stat-number">12</div><div class="stat-label">Years active</div></div>
-          <div class="stat-card"><!-- TODO: Replace with actual statistics from client --><div class="stat-number">50+</div><div class="stat-label">Volunteers</div></div>
+          <div class="stat-card"><span class="stat-number" id="counter-families" data-target="500">500+</span><div class="stat-label">Families helped</div></div>
+          <div class="stat-card"><span class="stat-number" id="counter-years" data-target="12">12</span><div class="stat-label">Years active</div></div>
+          <div class="stat-card"><span class="stat-number" id="counter-volunteers" data-target="50">50+</span><div class="stat-label">Volunteers</div></div>
         </div>
       </div>
     </section>
@@ -177,11 +260,33 @@
           <h2 class="section-title">Stories of Hope</h2>
           <p class="section-subtitle">Real experiences from families we've supported</p>
         </div>
-        <div class="testimonials-grid">
-          <!-- Testimonial cards - PLACEHOLDER CONTENT (client to supply real testimonials) -->
-          <div class="card testimonial-card"><p class="testimonial-quote">"The support I received from Pati Pariwar Kalyan Samiti helped me navigate through the most difficult time in my life. Their legal guidance was invaluable."</p><p class="testimonial-author">— Anonymous, Lucknow</p></div>
-          <div class="card testimonial-card"><p class="testimonial-quote">"Their counseling services brought our family back together. The volunteers truly care about making a difference in people's lives."</p><p class="testimonial-author">— R.K., Uttar Pradesh</p></div>
-          <div class="card testimonial-card"><p class="testimonial-quote">"I felt alone until I found this organization. They provided both emotional support and practical legal advice when I needed it most."</p><p class="testimonial-author">— S.M., Kanpur</p></div>
+        <!-- Testimonials Slider -->
+        <div class="testimonials-slider-container">
+          <div class="testimonials-slider">
+            <div class="testimonial-card">
+              <p class="testimonial-quote">"The support I received from Pati Pariwar Kalyan Samiti helped me navigate through the most difficult time in my life. Their legal guidance was invaluable."</p>
+              <div class="testimonial-author">
+                  <span class="author-name">— Anonymous, Lucknow</span>
+                  <span class="verified-badge">✓ Verified Member</span>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <p class="testimonial-quote">"Their counseling services brought our family back together. The volunteers truly care about making a difference in people's lives."</p>
+              <div class="testimonial-author">
+                  <span class="author-name">— R.K., Uttar Pradesh</span>
+                  <span class="verified-badge">✓ Verified Member</span>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <p class="testimonial-quote">"I felt alone until I found this organization. They provided both emotional support and practical legal advice when I needed it most."</p>
+              <div class="testimonial-author">
+                  <span class="author-name">— S.M., Kanpur</span>
+                  <span class="verified-badge">✓ Verified Member</span>
+              </div>
+            </div>
+          </div>
+          <button class="slider-arrow slider-prev" aria-label="Previous testimonial">‹</button>
+          <button class="slider-arrow slider-next" aria-label="Next testimonial">›</button>
         </div>
       </div>
     </section>
@@ -193,24 +298,24 @@
           <p class="section-subtitle">Stay updated with our latest events and initiatives</p>
         </div>
         <div class="activities-grid">
-          <div class="card activity-card">
-            <div class="activity-image">📸</div>
+          <div class="card activity-card reveal reveal-delay-1">
+            <div class="activity-image"><svg class="activity-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
             <div class="activity-content">
               <h3 class="activity-title">National Meet 2024</h3>
-              <p class="activity-meta">New Delhi • March 2024</p>
+              <p class="activity-meta">Chandigarh • August 2024</p>
               <p class="text-secondary">Annual gathering of family welfare organizations across India discussing men's rights and legal reforms.</p>
             </div>
           </div>
-          <div class="card activity-card">
-            <div class="activity-image">🎤</div>
+          <div class="card activity-card reveal reveal-delay-2">
+            <div class="activity-image"><svg class="activity-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
             <div class="activity-content">
               <h3 class="activity-title">Legal Awareness Workshop</h3>
               <p class="activity-meta">Lucknow • February 2024</p>
               <p class="text-secondary">Educational session on legal rights and procedures for men facing family disputes.</p>
             </div>
           </div>
-          <div class="card activity-card">
-            <div class="activity-image">🤝</div>
+          <div class="card activity-card reveal reveal-delay-3">
+            <div class="activity-image"><svg class="activity-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0-2-2H9c-1.1 0-2 .9-2 2v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1ZM3 12h2m14 0h2M7 6h1m11 0h1M7 18h1m11 0h1M9 3v2m6 0v2M9 21v-2m6 2v-2"/></svg></div>
             <div class="activity-content">
               <h3 class="activity-title">Community Support Meeting</h3>
               <p class="activity-meta">Lucknow • January 2024</p>
@@ -229,20 +334,20 @@
           <p class="section-subtitle">Download guides and legal information</p>
         </div>
         <div class="resources-grid">
-          <a href="#" class="card resource-card">
-            <div class="resource-icon">📄</div>
+          <a href="#" class="card resource-card reveal reveal-delay-1">
+            <div class="resource-icon"><svg class="resource-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
             <h3 class="resource-title">Legal Rights Guide</h3>
             <p class="resource-desc">Comprehensive guide to men's legal rights in family disputes under Indian law.</p>
             <span class="btn btn-outline btn-sm">Download PDF ↓</span>
           </a>
-          <a href="#" class="card resource-card">
-            <div class="resource-icon">📋</div>
+          <a href="#" class="card resource-card reveal reveal-delay-2">
+            <div class="resource-icon"><svg class="resource-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
             <h3 class="resource-title">Counseling Handbook</h3>
             <p class="resource-desc">Self-help strategies and coping mechanisms for stress management during conflicts.</p>
             <span class="btn btn-outline btn-sm">Download PDF ↓</span>
           </a>
-          <a href="#" class="card resource-card">
-            <div class="resource-icon">⚖️</div>
+          <a href="#" class="card resource-card reveal reveal-delay-3">
+            <div class="resource-icon"><svg class="resource-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
             <h3 class="resource-title">Court Procedure Guide</h3>
             <p class="resource-desc">Step-by-step overview of family court procedures and what to expect.</p>
             <span class="btn btn-outline btn-sm">Download PDF ↓</span>
@@ -313,6 +418,104 @@
           input.addEventListener('input', function() { this.classList.remove('error'); });
         });
       }
+
+      // Counter Animation Script
+      const statsSection = document.querySelector('.stats-grid');
+      const counters = document.querySelectorAll('.stat-number');
+      let animationTriggered = false;
+
+      const animateCounters = () => {
+        if (animationTriggered) return; // Prevent re-running the animation
+        const sectionTop = statsSection.getBoundingClientRect().top;
+        const sectionVisible = sectionTop < window.innerHeight * 0.75; // Trigger when 75% of the section is visible
+
+        if (sectionVisible) {
+          counters.forEach(counter => {
+            const targetElement = counter;
+            const targetValue = parseInt(targetElement.getAttribute('data-target'));
+            const increment = targetValue / 200; // Adjust speed by changing the divisor
+            let currentValue = 0;
+
+            const updateCounter = () => {
+              currentValue += increment;
+              if (currentValue < targetValue) {
+                targetElement.textContent = Math.floor(currentValue);
+                requestAnimationFrame(updateCounter);
+              } else {
+                targetElement.textContent = targetValue + (targetValue === 500 ? '+' : ''); // Add '+' back for families and volunteers if needed, assuming only families has it for now
+              }
+            };
+
+            updateCounter();
+          });
+          animationTriggered = true; // Mark the animation as triggered
+        }
+      };
+
+      // Run the function on scroll and initial load
+      window.addEventListener('scroll', animateCounters);
+      animateCounters(); // Initial check in case the section is already visible on load
+    });
+
+    // Testimonials Slider Script
+    document.addEventListener('DOMContentLoaded', function() {
+      const sliderContainer = document.querySelector('.testimonials-slider');
+      const slides = document.querySelectorAll('.testimonial-card');
+      const prevBtn = document.querySelector('.slider-prev');
+      const nextBtn = document.querySelector('.slider-next');
+      let currentIndex = 0;
+      const slideCount = slides.length;
+
+      // Function to update the slider's position
+      const goToSlide = (index) => {
+        currentIndex = index;
+        sliderContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+      };
+
+      // Next button click handler
+      nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slideCount; // Loop back to start
+        goToSlide(currentIndex);
+         // Reset auto-rotate timer on manual interaction
+        resetAutoRotate();
+      });
+
+      // Previous button click handler
+      prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slideCount) % slideCount; // Loop to end
+        goToSlide(currentIndex);
+         // Reset auto-rotate timer on manual interaction
+        resetAutoRotate();
+      });
+
+      // Auto-rotate functionality
+      let autoRotateInterval;
+      const startAutoRotate = () => {
+        autoRotateInterval = setInterval(() => {
+          currentIndex = (currentIndex + 1) % slideCount;
+          goToSlide(currentIndex);
+        }, 5000); // Change slide every 5 seconds
+      };
+
+      const resetAutoRotate = () => {
+        clearInterval(autoRotateInterval);
+        startAutoRotate();
+      };
+
+      // Initialize slider and start auto-rotation
+      goToSlide(currentIndex);
+      startAutoRotate();
+
+      // Pause auto-rotate if the user hovers over the slider container
+      const sliderWrapper = document.querySelector('.testimonials-slider-container');
+      sliderWrapper.addEventListener('mouseenter', () => {
+          clearInterval(autoRotateInterval);
+      });
+
+      // Resume auto-rotate when mouse leaves
+      sliderWrapper.addEventListener('mouseleave', () => {
+          startAutoRotate();
+      });
     });
   </script>
 </body>

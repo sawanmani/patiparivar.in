@@ -241,6 +241,19 @@ button {
   }
 }
 
+/* Override sticky behavior for resource filter nav and activity nav */
+.sticky-resource-nav {
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+}
+
+.sticky-activity-nav {
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+}
+
 /* --- Components --- */
 
 /* BUTTONS */
